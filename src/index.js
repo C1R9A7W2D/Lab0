@@ -5,13 +5,17 @@ function integrate_function(f, left, right, n) {
         let x_star = x - step/2;
         res += f(x_star);
     }
-    return res  * step;
+    //alert(res);
+    return res * step;
 }
 
 const f = x => 4*x - x*x;
+const N = 10000;
 
 alert("Let's integrate!");
-const left = prompt('Нижний предел: ');
-const right = prompt('Верхний предел: ');
+const left = Number(prompt('Нижний предел: '));
+const right = Number(prompt('Верхний предел: '));
+if (left >= right)
+    alert("Нижний предел не может быть больше верхнего!")
 
-alert(`Результат интегрирования: ${integrate_function(f, left, right, 5)}`);
+alert(`Результат интегрирования: ${integrate_function(f, left, right, N)}`);
